@@ -11,10 +11,11 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       R_KEEP_PKG_SOURCE: yes
-      CMBRIDGE_VALIDATION_DIR: validation-artifacts
+      CMBRIDGE_VALIDATION_DIR: validation-artifacts/bridge
+      CMBRIDGE_ADJOINT_VALIDATION_DIR: validation-artifacts/adjoint
 
     steps:
       - name: Check out repository
@@ -44,14 +45,24 @@ jobs:
       - name: Install cmbridge
         run: R CMD INSTALL .
 
-      - name: Run large-sample validation in R
+      - name: Run bridge large-sample validation in R
         run: Rscript inst/simulations/validate_large_sample.R
 
-      - name: Show validation results
+      - name: Run adjoint large-sample validation in R
+        run: Rscript inst/simulations/validate_adjoint_large_sample.R
+
+      - name: Show bridge validation results
         if: always()
         run: |
-          if [ -f validation-artifacts/validation_results.csv ]; then
-            cat validation-artifacts/validation_results.csv
+          if [ -f validation-artifacts/bridge/validation_results.csv ]; then
+            cat validation-artifacts/bridge/validation_results.csv
+          fi
+
+      - name: Show adjoint validation results
+        if: always()
+        run: |
+          if [ -f validation-artifacts/adjoint/adjoint_validation_results.csv ]; then
+            cat validation-artifacts/adjoint/adjoint_validation_results.csv
           fi
 
       - name: Upload validation artifacts
