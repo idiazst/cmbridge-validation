@@ -1,0 +1,22 @@
+citHeader("Methodological references for cmbridge")
+
+citEntry(entry = "article",
+  title = "Efficient Estimation of Models with Conditional Moment Restrictions Containing Unknown Functions",
+  author = personList(as.person("Chunrong Ai"), as.person("Xiaohong Chen")),
+  journal = "Econometrica", year = "2003", volume = "71", number = "6",
+  pages = "1795--1843", doi = "10.1111/1468-0262.00470")
+
+citEntry(entry = "article",
+  title = "Applied Nonparametric Instrumental Variables Estimation",
+  author = personList(as.person("Joel L. Horowitz")),
+  journal = "Econometrica", year = "2011", volume = "79", number = "2",
+  pages = "347--394", doi = "10.3982/ECTA8662")
+
+citEntry(entry = "inproceedings",
+  title = "Proximal Causal Learning with Kernels: Two-Stage Estimation and Moment Restriction",
+  author = personList(as.person("Afsaneh Mastouri"), as.person("Yuchen Zhu"),
+                      as.person("Limor Gultchin"), as.person("Anna Korba"),
+                      as.person("Ricardo Silva"), as.person("Matt J. Kusner"),
+                      as.person("Arthur Gretton"), as.person("Krikamol Muandet")),
+  booktitle = "Proceedings of the 38th International Conference on Machine Learning",
+  year = "2021", volume = "139", pages = "7512--7523")
